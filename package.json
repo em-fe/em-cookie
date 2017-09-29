@@ -1,0 +1,24 @@
+{
+  "name": "em-cookie",
+  "version": "1.0.0",
+  "description": "cookie工具",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/em-fe/em-cookie.git"
+  },
+  "keywords": [
+    "cookie",
+    "vue",
+    "em-cookie"
+  ],
+  "author": "李梦龙",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/em-fe/em-cookie/issues"
+  },
+  "homepage": "https://github.com/em-fe/em-cookie#readme"
+}
