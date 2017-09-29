@@ -11,7 +11,7 @@ var VueCookies = {
   install: function(Vue) {
     Object.defineProperties(Vue.prototype, {
       $cookies: {
-        get() {
+        get: function() {
           return VueCookies;
         },
       },
