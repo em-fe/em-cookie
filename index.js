@@ -9,13 +9,15 @@
 var VueCookies = {
   // install of Vue
   install: function(Vue) {
-    Object.defineProperties(Vue.prototype, {
-      $cookies: {
-        get: function() {
-          return VueCookies;
+    if (!Vue.prototype.$cookies) {
+      Object.defineProperties(Vue.prototype, {
+        $cookies: {
+          get: function() {
+            return VueCookies;
+          },
         },
-      },
-    });
+      });
+    }
   },
   get: function(key) {
     return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(key).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
