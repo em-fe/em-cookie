@@ -1,11 +1,3 @@
-/**
- * Vue Cookies v1.5.4
- * https://github.com/em-fe/em-cookie
- *
- * Copyright 2016, cmp-cc
- * Released under the MIT license
- */
-
 var VueCookies = {
   // install of Vue
   install: function(Vue) {
@@ -66,7 +58,7 @@ var VueCookies = {
     if (!key || !this.isKey(key)) {
       return false;
     }
-    document.cookie = encodeURIComponent(key) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (domain ? "; domain=" + domain : "") + (path ? "; path=" + path : "");
+    document.cookie = encodeURIComponent(key) + "=''; expires="+ new Date() +"" + (domain ? "; domain=" + domain : "") + (path ? "; path=" + path : "; path=/");
     return true;
   },
   isKey: function(key) {
