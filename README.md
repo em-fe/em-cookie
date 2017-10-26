@@ -19,7 +19,9 @@ cookie的相关操作
  ```js
  import cookie from 'em-cookie';
  Vue.use(VueCookie);
+ // 普通用法
  console.log(window.$cookie.get('aaa'));
+ // vue 用法
  console.log(this.$cookie.get('aaa'));
  ```
 

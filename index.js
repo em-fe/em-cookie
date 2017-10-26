@@ -3,7 +3,7 @@ var VueCookies = {
   install: function(Vue) {
     if (!Vue.prototype.$cookies) {
       Object.defineProperties(Vue.prototype, {
-        $cookies: {
+        $cookie: {
           get: function() {
             return VueCookies;
           },
@@ -58,7 +58,7 @@ var VueCookies = {
     if (!key || !this.isKey(key)) {
       return false;
     }
-    document.cookie = encodeURIComponent(key) + "=''; expires="+ new Date() +"" + (domain ? "; domain=" + domain : "") + (path ? "; path=" + path : "; path=/");
+    document.cookie = encodeURIComponent(key) + "=; expires="+ new Date() +"" + (domain ? "; domain=" + domain : "") + (path ? "; path=" + path : "; path=/");
     return true;
   },
   isKey: function(key) {
