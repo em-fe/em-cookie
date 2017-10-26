@@ -3,7 +3,7 @@ var VueCookies = {
   install: function(Vue) {
     if (!Vue.prototype.$cookies) {
       Object.defineProperties(Vue.prototype, {
-        $cookies: {
+        $cookie: {
           get: function() {
             return VueCookies;
           },
