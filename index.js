@@ -20,7 +20,7 @@ var VueCookies = {
     }else if(/^(?:expires|max\-age|path|domain|secure)$/i.test(key)){
       throw new Error("cookie key name illegality ,Cannot be set to ['expires','max-age','path','domain','secure']\t","current key name: "+key);
     }
-    var _expires = "; max-age=86400"; // default expire time for 1 day
+    var _expires = "; max-age="; // default expire time for 1 day
     if (expireTimes) {
       switch (expireTimes.constructor) {
         case Number:
