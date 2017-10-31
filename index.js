@@ -1,7 +1,7 @@
 var VueCookies = {
   // install of Vue
   install: function(Vue) {
-    if (!Vue.prototype.$cookies) {
+    if (!Vue.prototype.$cookie) {
       Object.defineProperties(Vue.prototype, {
         $cookie: {
           get: function() {
