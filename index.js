@@ -1,9 +1,9 @@
 var VueCookies = {
   // install of Vue
   install: function(Vue) {
-    if (!Vue.prototype.$cookies) {
+    if (!Vue.prototype.$cookie) {
       Object.defineProperties(Vue.prototype, {
-        $cookie: {
+        $cookies: {
           get: function() {
             return VueCookies;
           },
@@ -20,7 +20,7 @@ var VueCookies = {
     }else if(/^(?:expires|max\-age|path|domain|secure)$/i.test(key)){
       throw new Error("cookie key name illegality ,Cannot be set to ['expires','max-age','path','domain','secure']\t","current key name: "+key);
     }
-    var _expires = "; max-age="; // default expire time for 1 day
+    var _expires = "; max-age=86400"; // default expire time for 1 day
     if (expireTimes) {
       switch (expireTimes.constructor) {
         case Number:
@@ -58,7 +58,7 @@ var VueCookies = {
     if (!key || !this.isKey(key)) {
       return false;
     }
-    document.cookie = encodeURIComponent(key) + "=; expires="+ new Date() +"" + (domain ? "; domain=" + domain : "") + (path ? "; path=" + path : "; path=/");
+    document.cookie = encodeURIComponent(key) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (domain ? "; domain=" + domain : "") + (path ? "; path=" + path : "");
     return true;
   },
   isKey: function(key) {
