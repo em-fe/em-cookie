@@ -1,6 +1,11 @@
 # em-cookie
 cookie的相关操作
 
+[![em-cookie](https://img.shields.io/npm/v/em-cookie.svg?style=flat-square)](https://www.npmjs.org/package/em-cookie)
+[![NPM downloads](http://img.shields.io/npm/dm/em-cookie.svg?style=flat-square)](https://npmjs.org/package/em-cookie)
+[![Package Quality](http://npm.packagequality.com/shield/em-cookie.svg)](http://packagequality.com/#?package=em-cookie)
+[![NPM downloads](https://img.shields.io/npm/dt/em-cookie.svg?style=flat-square)](https://npmjs.org/package/em-cookie)
+
 1. 为什么用？
 
  * 减少项目之间重复的代码
