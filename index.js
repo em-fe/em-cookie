@@ -14,13 +14,14 @@ var VueCookies = {
   get: function(key) {
     return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(key).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
   },
-  set: function(key, value, expireTimes, path, domain, secure) {
+  set: function(key, value, expireValue, path, domain, secure) {
     if (!key) {
       throw new Error("cookie name is not find in first argument")
     }else if(/^(?:expires|max\-age|path|domain|secure)$/i.test(key)){
       throw new Error("cookie key name illegality ,Cannot be set to ['expires','max-age','path','domain','secure']\t","current key name: "+key);
     }
     var _expires = "; max-age="; // default expire time for 1 day
+    var expireTimes = expireValue || '1d';
     if (expireTimes) {
       switch (expireTimes.constructor) {
         case Number:
@@ -51,14 +52,14 @@ var VueCookies = {
           break;
       }
     }
-      document.cookie = encodeURIComponent(key) + "=" + encodeURIComponent(value) + _expires + (domain ? "; domain=" + domain : "") + (path ? "; path=" + path : "; path=/") + (secure ? "; secure" : "");
+      document.cookie = encodeURIComponent(key) + "=" + encodeURIComponent(value) + _expires + "; domain=" + (domain ? domain : document.domain) + (path ? "; path=" + path : "; path=/") + (secure ? "; secure" : "");
     return this;
   },
   remove: function(key, path, domain) {
     if (!key || !this.isKey(key)) {
       return false;
     }
-    document.cookie = encodeURIComponent(key) + "=; expires="+ new Date() +"" + (domain ? "; domain=" + domain : "") + (path ? "; path=" + path : "; path=/");
+    document.cookie = encodeURIComponent(key) + "=; expires="+ new Date() +"" + "; domain=" + (domain ? domain : document.domain) + (path ? "; path=" + path : "; path=/");
     return true;
   },
   isKey: function(key) {
