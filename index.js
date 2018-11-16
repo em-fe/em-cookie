@@ -51,8 +51,10 @@ var VueCookies = {
           _expires = "; expires=" + expireTimes.toUTCString();
           break;
       }
+    } else {
+      _expires = "; max-age=" + + 86400;
     }
-      document.cookie = encodeURIComponent(key) + "=" + encodeURIComponent(value) + _expires + "; domain=" + (domain ? domain : document.domain) + (path ? "; path=" + path : "; path=/") + (secure ? "; secure" : "");
+    document.cookie = encodeURIComponent(key) + "=" + encodeURIComponent(value) + _expires + (domain ? "; domain=" + domain : "") + (path ? "; path=" + path : "; path=/") + (secure ? "; secure" : "");
     return this;
   },
   remove: function(key, path, domain) {
